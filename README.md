@@ -5,4 +5,4 @@ Skills: IEC 61131-3 · Beckhoff TwinCAT · Azure DevOps Services · CI/CD · Mot
 
 Reach me at: [linkedin.com/in/sahildeshpande/](https://www.linkedin.com/in/sahildeshpande/) 
 
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=sahildeshp)](https://github.com/anuraghazra/github-readme-stats)
+
