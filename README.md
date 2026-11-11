@@ -7,14 +7,4 @@
 <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/role-dark.svg"><img src="./assets/role-light.svg" alt="Current role: HVDC Control &amp; Protection Engineer at Siemens Energy" width="50%"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/before-dark.svg"><img src="./assets/before-light.svg" alt="Before Siemens Energy: SLB, Rivian, Honeywell, NC State ADAC Lab" width="50%"></picture>
 <br>
 <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/hvdc-dark.svg"><img src="./assets/hvdc-light.svg" alt="Simplified HVDC link with control and protection on each converter station" width="100%"></picture>
-<br>
-<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/projects-heading-dark.svg"><img src="./assets/projects-heading-light.svg" alt="Selected projects" width="100%"></picture>
-<br>
-<a href="https://sahildeshp.github.io/#projects"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/project-digital-twin-dark.svg"><img src="./assets/project-digital-twin-light.svg" alt="Digital twin and control validation for drilling systems" width="50%"></picture></a><a href="https://github.com/sahildeshp/Adaptive-Cruise-Control-and-Vision-based-Lane-Detection-of-NVIDIA-JetBot"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/project-jetbot-dark.svg"><img src="./assets/project-jetbot-light.svg" alt="Vision-based lane detection on NVIDIA JetBot" width="50%"></picture></a>
-<br>
-<a href="https://github.com/sahildeshp/Lyapunov-based-Non-Linear-Tracking-Control-of-a-2-link-Robotic-Manipulator"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/project-lyapunov-dark.svg"><img src="./assets/project-lyapunov-light.svg" alt="Lyapunov-based nonlinear tracking control of a 2-link manipulator" width="50%"></picture></a><a href="https://github.com/sahildeshp/Terrain_Classification_from_Time_Series_Data"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/project-terrain-dark.svg"><img src="./assets/project-terrain-light.svg" alt="Terrain classification from IMU time series" width="50%"></picture></a>
-<br>
-<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/skills-dark.svg"><img src="./assets/skills-light.svg" alt="Skills" width="100%"></picture>
-<br>
-<a href="mailto:sahil.dshp@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/contact-dark.svg"><img src="./assets/contact-light.svg" alt="Reach me at sahil.dshp@gmail.com" width="100%"></picture></a>
 </p>

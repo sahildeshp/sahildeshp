@@ -440,12 +440,6 @@ def main(out):
     save("role", lambda th: role(th, rh))
     save("before", lambda th: before(th, rh))
     save("hvdc", hvdc)
-    save("projects-heading", lambda th: heading(th, "Selected projects"))
-    ph = [max(project_layout(PROJECTS[i])[2], project_layout(PROJECTS[i + 1])[2]) for i in (0, 2)]
-    for i, p in enumerate(PROJECTS):
-        save("project-" + p[0], lambda th, p=p, i=i: project(th, p, ph[i // 2], "left" if i % 2 == 0 else "right"))
-    save("skills", skills)
-    save("contact", contact)
     for key, label, kind in BUTTONS:
         save("btn-" + key, lambda th, label=label, kind=kind: button(th, label, kind))
 
@@ -463,13 +457,6 @@ def main(out):
     rows.append(pic("role", "Current role: HVDC Control & Protection Engineer at Siemens Energy", half) +
                 pic("before", "Before Siemens Energy: SLB, Rivian, Honeywell, NC State ADAC Lab", half))
     rows.append(pic("hvdc", "Simplified HVDC link with control and protection on each converter station", full))
-    rows.append(pic("projects-heading", "Selected projects", full))
-    for i in (0, 2):
-        a, b = PROJECTS[i], PROJECTS[i + 1]
-        rows.append(link(a[5], pic("project-" + a[0], a[2], half)) +
-                    link(b[5], pic("project-" + b[0], b[2], half)))
-    rows.append(pic("skills", "Skills", full))
-    rows.append(link(urls["email"], pic("contact", "Reach me at sahil.dshp@gmail.com", full)))
 
     body = "\n<br>\n".join(rows)
     readme = (
