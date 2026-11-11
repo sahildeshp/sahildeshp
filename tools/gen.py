@@ -43,7 +43,7 @@ HALF = 414       # half tile width; two halves sit in 420-wide canvases
 GAP = 12         # horizontal gap between half tiles
 VGAP = 8         # extra space under each row (the line box adds a few px more)
 R = 24           # corner radius
-PAD = 34
+PAD = 30
 
 
 # ---------- text metrics and wrapping ----------
@@ -161,17 +161,17 @@ HEADLINE = [("I", None), ("design", None), ("and", None), ("validate", None), ("
 
 
 def hero(theme):
-    size, lh = 50, 53
-    lines = wrap(HEADLINE, "brico700", size, W - 2 * PAD, spacing=-1.4)
-    h = PAD + 26 + 22 + 30 + len(lines) * lh + PAD - 4
+    size, lh = 43, 46
+    lines = wrap(HEADLINE, "brico700", size, W - 2 * PAD, spacing=-1.2)
+    h = PAD + 22 + 20 + 26 + len(lines) * lh + PAD - 2
     s = Svg(W, h, theme, canvas=(W, h + VGAP))
     t = s.t
     tile(s)
-    s.text(PAD, PAD + 22, "Hi, I am Sahil.", "brico650", 21, t["ink"], spacing=-0.2)
-    s.text(PAD, PAD + 46, "HVDC Control & Protection Engineer, Raleigh NC", "inst400", 16, t["muted"])
-    y = PAD + 46 + 30 + size
+    s.text(PAD, PAD + 19, "Hi, I am Sahil.", "brico650", 18, t["ink"], spacing=-0.2)
+    s.text(PAD, PAD + 40, "HVDC Control & Protection Engineer, Raleigh NC", "inst400", 14, t["muted"])
+    y = PAD + 40 + 24 + size
     for line in lines:
-        s.rich(PAD - 2, y, line, "brico700", size, t["ink"], spacing=-1.4)
+        s.rich(PAD - 2, y, line, "brico700", size, t["ink"], spacing=-1.2)
         y += lh
     return s.render("I design and validate the control and protection systems behind HVDC transmission.")
 
@@ -186,18 +186,18 @@ def role(theme, h):
     tile(s, fill=t["role"], stroke=False)
     s.css.append("@keyframes p{0%{r:5px;opacity:.8}80%,100%{r:15px;opacity:0}}"
                  ".ping{animation:p 2.4s cubic-bezier(0,0,.2,1) infinite}")
-    s.raw(f'<circle cx="{PAD+5}" cy="{PAD+7}" r="5" fill="#7dffb0"/>'
-          f'<circle class="ping" cx="{PAD+5}" cy="{PAD+7}" r="5" fill="#7dffb0"/>')
-    s.text(PAD + 20, PAD + 12, "Current role", "inst600", 15, t["rolefg"])
-    title = wrap(plain("HVDC Control & Protection Engineer"), "brico650", 31, HALF - 2 * PAD, spacing=-0.7)
-    y = h - PAD - 66 - (len(title) - 1) * 34
+    s.raw(f'<circle cx="{PAD+4}" cy="{PAD+6}" r="4.5" fill="#7dffb0"/>'
+          f'<circle class="ping" cx="{PAD+4}" cy="{PAD+6}" r="4.5" fill="#7dffb0"/>')
+    s.text(PAD + 17, PAD + 10.5, "Current role", "inst600", 13.5, t["rolefg"])
+    title = wrap(plain("HVDC Control & Protection Engineer"), "brico650", 27, HALF - 2 * PAD - 100, spacing=-0.6)
+    y = h - PAD - 58 - (len(title) - 1) * 30
     for line in title:
-        s.rich(PAD, y, line, "brico650", 31, t["rolefg"], spacing=-0.7)
-        y += 34
-    s.text(PAD, h - PAD - 34, "Siemens Energy", "inst600", 16, t["rolefg"])
-    s.text(PAD + width("Siemens Energy", "inst600", 16) + 12, h - PAD - 34,
-           "Feb 2025 – Present", "inst400", 16, t["rolesoft"])
-    s.text(PAD, h - PAD - 8, "Control and protection for HVDC links.", "inst400", 15, t["rolesoft"])
+        s.rich(PAD, y, line, "brico650", 27, t["rolefg"], spacing=-0.6)
+        y += 30
+    s.text(PAD, h - PAD - 30, "Siemens Energy", "inst600", 14, t["rolefg"])
+    s.text(PAD + width("Siemens Energy", "inst600", 14) + 10, h - PAD - 30,
+           "Feb 2025 – Present", "inst400", 14, t["rolesoft"])
+    s.text(PAD, h - PAD - 7, "Control and protection for HVDC links.", "inst400", 13.5, t["rolesoft"])
     return s.render("Current role: HVDC Control and Protection Engineer at Siemens Energy, since February 2025.")
 
 
@@ -211,15 +211,15 @@ def before(theme, h):
     s = half(h, theme, "right")
     t = s.t
     tile(s)
-    s.text(PAD, PAD + 12, "Before Siemens Energy", "inst600", 15, t["muted"])
-    y = PAD + 46
+    s.text(PAD, PAD + 10.5, "Before Siemens Energy", "inst600", 13.5, t["muted"])
+    y = PAD + 40
     step = (h - PAD - y - 6) / (len(PAST) - 1) if len(PAST) > 1 else 0
     for i, (co, rl, yr) in enumerate(PAST):
         if i:
-            s.raw(f'<path d="M{PAD} {y-27:.1f}H{HALF-PAD}" stroke="{t["stroke"]}" stroke-width="1"/>')
-        s.text(PAD, y, co, "brico650", 17, t["ink"], spacing=-0.2)
-        s.text(HALF - PAD, y, yr, "inst400", 14, t["muted"], anchor="end")
-        s.text(PAD, y + 20, rl, "inst400", 14.5, t["text"])
+            s.raw(f'<path d="M{PAD} {y-24:.1f}H{HALF-PAD}" stroke="{t["stroke"]}" stroke-width="1"/>')
+        s.text(PAD, y, co, "brico650", 15, t["ink"], spacing=-0.2)
+        s.text(HALF - PAD, y, yr, "inst400", 12.5, t["muted"], anchor="end")
+        s.text(PAD, y + 18, rl, "inst400", 13, t["text"])
         y += step
     return s.render("Before Siemens Energy: SLB, Rivian Automotive, Honeywell International, NC State ADAC Lab.")
 
@@ -230,7 +230,7 @@ def hvdc(theme):
     s = Svg(W, h, theme, canvas=(W, h + VGAP))
     t = s.t
     tile(s)
-    s.text(PAD, PAD + 12, "The system I work on", "inst600", 15, t["muted"])
+    s.text(PAD, PAD + 10.5, "The system I work on", "inst600", 13.5, t["muted"])
     s.css.append("@keyframes f{to{stroke-dashoffset:-32}}"
                  ".fl{fill:none;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:10 22;animation:f 1.6s linear infinite}"
                  ".rv{animation-direction:reverse}")
@@ -253,10 +253,10 @@ def hvdc(theme):
          f'<rect x="446" y="20" width="164" height="36" rx="18" fill="{t["role"]}"/>', '</g>']
     s.raw("".join(g))
     for x in (232, 528):
-        s.text(x + ox, oy + 43, "Control & protection", "inst600", 13.5, "#ffffff", anchor="middle")
+        s.text(x + ox, oy + 42.5, "Control & protection", "inst600", 12.5, "#ffffff", anchor="middle")
     for x, y, lab in [(46, 182, "AC grid"), (232, 188, "Converter station"), (380, 188, "DC link"),
                       (528, 188, "Converter station"), (714, 182, "AC grid")]:
-        s.text(x + ox, y + oy, lab, "inst400", 14, t["muted"], anchor="middle")
+        s.text(x + ox, y + oy, lab, "inst400", 12.5, t["muted"], anchor="middle")
     s.text(282 + ox, 107 + oy, "+", "inst400", 14, t["muted"], anchor="middle")
     s.text(282 + ox, 164 + oy, "−", "inst400", 14, t["muted"], anchor="middle")
     return s.render("Simplified HVDC link: two AC grids joined by two converter stations and a DC link, "
@@ -398,17 +398,17 @@ BUTTONS = [("website", "Website", "primary"), ("resume", "Resume", "secondary"),
 
 
 def button(theme, label, kind):
-    tw = width(label, "inst600", 15)
-    w = int(tw + 2 * 22 + 22)
-    h = 46
+    tw = width(label, "inst600", 13.5)
+    w = int(tw + 2 * 19 + 20)
+    h = 40
     s = Svg(w, h, theme, canvas=(w, h + VGAP))
     t = s.t
     bg, fg = (t["btn"], t["btnfg"]) if kind == "primary" else (t["btn2"], t["btn2fg"])
     st = "" if kind == "primary" else f' stroke="{t["btn2stroke"]}"'
     s.raw(f'<rect x="0.5" y="0.5" width="{w-1}" height="{h-1}" rx="{(h-1)/2}" fill="{bg}"{st}/>')
-    s.text(22, 29.5, label, "inst600", 15, fg)
-    ax = 22 + tw + 10
-    s.raw(f'<path d="M{ax:.1f} 27l7-7M{ax+1:.1f} 20h6v6" fill="none" stroke="{fg}" stroke-width="1.7" '
+    s.text(19, 25.5, label, "inst600", 13.5, fg)
+    ax = 19 + tw + 9
+    s.raw(f'<path d="M{ax:.1f} 24l6-6M{ax+1:.1f} 18h5v5" fill="none" stroke="{fg}" stroke-width="1.6" '
           f'stroke-linecap="round" stroke-linejoin="round"/>')
     return s.render(label)
 
@@ -436,7 +436,7 @@ def main(out):
                 f.write(fn(th))
 
     save("hero", hero)
-    rh = 300
+    rh = 262
     save("role", lambda th: role(th, rh))
     save("before", lambda th: before(th, rh))
     save("hvdc", hvdc)
@@ -451,7 +451,7 @@ def main(out):
     rows = []
     rows.append(pic("hero", "I design and validate the control and protection systems behind HVDC transmission.", full))
     def btn_pct(label):  # same scale as the 840-wide tiles at any column width
-        return f"{(int(width(label, 'inst600', 15) + 66)) / W * 100:.2f}%"
+        return f"{(int(width(label, 'inst600', 13.5) + 58)) / W * 100:.2f}%"
     rows.append(" ".join(link(urls[k], pic("btn-" + k, label, btn_pct(label)))
                          for k, label, _ in BUTTONS))
     rows.append(pic("role", "Current role: HVDC Control & Protection Engineer at Siemens Energy", half) +
